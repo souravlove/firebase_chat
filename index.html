@@ -16,79 +16,32 @@
 	<!--Coded With Love By Mutiullah Samim-->
 	<body>
 		<div class="container-fluid h-100">
-			<div class="row justify-content-center h-100">
+			<div class="row  justify-content-center text-center mt-4">
+				<div class="col-md-6">
+					<button class="btn btn-lg btn-rounded btn-success" id="openhouse_btn"> OpenHouse Chat &nbsp;&nbsp;<span class="badge badge-danger" id="oh_count"></span></button>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-lg btn-rounded btn-primary" id="anonymous_btn">Chat About Life &nbsp;&nbsp;<span class="badge badge-danger" id="anon_count"></span> </button>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-3">
 				<div class="col-md-4 chat">
 					<div class="card mb-sm-3 mb-md-0 contacts_card">
-						<div class="card-header">
+						<div class="card-header text-center">
 							<div class="input-group">
-								<input type="text" placeholder="Search..." name="" class="form-control search">
-								<div class="input-group-prepend">
-									<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
-								</div>
+								<h3 class="text-white" id="chat_heading">Openhouse Admin Chat</h3>
 							</div>
 						</div>
 						<div class="card-body contacts_body">
 							<ui class="contacts">
-							<li class="active">
-								<div class="d-flex bd-highlight">
-									<div class="img_cont">
-										<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
-										<span class="online_icon"></span>
+								<!-- Contacts will be appeared here -->
+								<li>
+									<div class="d-flex bd-highlight">
+										<div class="user_info">
+											<span>Loading...</span>
+										</div>
 									</div>
-									<div class="user_info">
-										<span>Maryam Naz</span>
-										<p>Maryam is online</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="d-flex bd-highlight">
-									<div class="img_cont">
-										<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
-										<span class="online_icon offline"></span>
-									</div>
-									<div class="user_info">
-										<span>Sahar Darya</span>
-										<p>Sahar left 7 mins ago</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="d-flex bd-highlight">
-									<div class="img_cont">
-										<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
-										<span class="online_icon"></span>
-									</div>
-									<div class="user_info">
-										<span>Yolduz Rafi</span>
-										<p>Yolduz is online</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="d-flex bd-highlight">
-									<div class="img_cont">
-										<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
-										<span class="online_icon offline"></span>
-									</div>
-									<div class="user_info">
-										<span>Nargis Hawa</span>
-										<p>Nargis left 30 mins ago</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="d-flex bd-highlight">
-									<div class="img_cont">
-										<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
-										<span class="online_icon offline"></span>
-									</div>
-									<div class="user_info">
-										<span>Khadija Mehr</span>
-										<p>Khadija left 50 mins ago</p>
-									</div>
-								</div>
-							</li>
+								</li>
 							</ui>
 						</div>
 						<div class="card-footer"></div>
@@ -99,101 +52,26 @@
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
+									<img id="user_dp" src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>Chat with Maryam Naz</span>
-									<p>1767 Messages</p>
+									<span id="user_name">Chat</span>
+									<!-- <p>1767 Messages</p> -->
 								</div>
-								<div class="video_cam">
-									<span><i class="fas fa-video"></i></span>
-									<span><i class="fas fa-phone"></i></span>
-								</div>
-							</div>
-							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
-							<div class="action_menu">
-								<ul>
-									<li><i class="fas fa-user-circle"></i> View profile</li>
-									<li><i class="fas fa-users"></i> Add to close friends</li>
-									<li><i class="fas fa-plus"></i> Add to group</li>
-									<li><i class="fas fa-ban"></i> Block</li>
-								</ul>
 							</div>
 						</div>
-						<div class="card-body msg_card_body">
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Hi, how are you samim?
-									<span class="msg_time">8:40 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Hi Maryam i am good tnx how about you?
-									<span class="msg_time_send">8:55 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-							<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									I am good too, thank you for your chat template
-									<span class="msg_time">9:00 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									You welcome Maryam
-									<span class="msg_time_send">9:05 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-							<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									I am looking for your next templates
-									<span class="msg_time">9:07 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Ok, thank you have a good day
-									<span class="msg_time_send">9:10 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Bye, see you
-									<span class="msg_time">9:12 AM, Today</span>
-								</div>
-							</div>
+						<div class="card-body msg_card_body" id="chatBox">
+							<!-- Chats will be appeared here -->
 						</div>
 						<div class="card-footer">
 							<div class="input-group">
-								<div class="input-group-append">
+								<!-- <div class="input-group-append">
 									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-								</div>
-								<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+								</div> -->
+								<textarea id="msg_box" class="form-control type_msg" placeholder="Type your message..."></textarea>
 								<div class="input-group-append">
-									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+									<span id="send_msg" class="input-group-text send_btn"><i class="fas fa-2x fa-location-arrow"></i></span>
 								</div>
 							</div>
 						</div>
@@ -210,7 +88,6 @@
 <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-database.js"></script>
-
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 <script defer src="./js/init.js"></script>
