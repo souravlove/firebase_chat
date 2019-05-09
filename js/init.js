@@ -44,15 +44,31 @@ anonymous.on('value',snap=>{
 			});
 		});
 	});
+	if(chatType == 'anonymous')	{ 
+		$('ui.contacts').html('');
+		anonymous_users.forEach(function(val,key){
+				$('ui.contacts').append('<li>\
+										<div onclick=showOHUserChat("'+val+'") class="d-flex bd-highlight">\
+											<div class="img_cont">\
+												<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">\
+												<span class="online_icon offline"></span>\
+											</div>\
+											<div class="user_info">\
+												<span>'+idToUser(val)+'</span>\
+											</div>\
+										</div>\
+									</li>');
+		});
+	}
 });
 
-openhouse.once('value',snap=>{
+openhouse.on('value',snap=>{
 	//send the notification
 	
 	var obj = snap.val();
 	$.each(obj,function(ke,va){
 		openhouse_users.push(ke);
-		anonymous.child(ke).once('child_added',snap_depth=>{ // ke => //device id
+		openhouse.child(ke).on('child_added',snap_depth=>{ // ke => //device id
 			va = snap_depth.val();
 			//console.log("Indepth value captured => ");
 			$.each(va,function(key,val){
@@ -67,8 +83,23 @@ openhouse.once('value',snap=>{
 			});
 		});
 	});
+	if(chatType == 'openhouse')	{ 
+		$('ui.contacts').html('');
+		openhouse_users.forEach(function(val,key){
+				$('ui.contacts').append('<li>\
+										<div onclick=showOHUserChat("'+val+'") class="d-flex bd-highlight">\
+											<div class="img_cont">\
+												<img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" class="rounded-circle user_img">\
+												<span class="online_icon offline"></span>\
+											</div>\
+											<div class="user_info">\
+												<span>'+idToUser(val)+'</span>\
+											</div>\
+										</div>\
+									</li>');
+		});
+	}
 })
-.then(()=>load_openhouse_chat());
 
 //Other callbacks
 
@@ -116,7 +147,7 @@ var load_anonymous_chat = function() {
 	$('#chat_heading').html('Chat About Life');
 	anonymous.orderByChild('createdAt');
 	$('ui.contacts').html('');
-	openhouse_users.forEach(function(val,key){
+	anonymous_users.forEach(function(val,key){
 		$('ui.contacts').append('<li>\
 							<div onclick=showAnonUserChat("'+val+'") class="d-flex bd-highlight">\
 								<div class="img_cont">\
@@ -275,4 +306,3 @@ sendAnonUserMsg = function(user,msg) {
 var idToUser = function(user_id) {
 	return user_id;
 }
-
