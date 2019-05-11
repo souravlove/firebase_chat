@@ -29,6 +29,7 @@ anonymous.on('value',snap=>{
 
 	$.each(obj,function(ke,va){
 		anonymous_users.push(ke);
+		anonymous_users = [...new Set(anonymous_users)]
 		anonymous.child(ke).on('child_added',snap_depth=>{ // ke => //device id
 			va = snap_depth.val();
 			//console.log("Indepth value captured => ");
@@ -68,6 +69,7 @@ openhouse.on('value',snap=>{
 	var obj = snap.val();
 	$.each(obj,function(ke,va){
 		openhouse_users.push(ke);
+		openhouse_users = [...new Set(openhouse_users)]
 		openhouse.child(ke).on('child_added',snap_depth=>{ // ke => //device id
 			va = snap_depth.val();
 			//console.log("Indepth value captured => ");
@@ -176,7 +178,7 @@ $('#send_msg').click(function(){
 //Other functions
 var showAnonUserChat = function(user_id) {
 	globalUser = user_id;
-	var dp = "https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg";
+	var user_dp = "https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg";
 	$('#user_name').html(idToUser(user_id));
 	var ref = anonymous.child(user_id);
 	var flag = true;
@@ -195,10 +197,10 @@ var showAnonUserChat = function(user_id) {
 				}
 			});
 
-			if(msg.user._id == user_id){	//this is me
+			if(msg.user._id == 1){	//this is me
 				$('#chatBox').append('<div class="d-flex justify-content-start mb-4">\
 										<div class="img_cont_msg">\
-											<img src="'+dp+'" class="rounded-circle user_img_msg">\
+											<img src="'+admin.avatar+'" class="rounded-circle user_img_msg">\
 										</div>\
 										<div class="msg_cotainer">\
 											'+msg.text+'\
@@ -213,7 +215,7 @@ var showAnonUserChat = function(user_id) {
 											<span class="msg_time">'+moment(msg.createdAt).format('hh:mm a')+'</span>\
 										</div>\
 										<div class="img_cont_msg">\
-											<img src="'+dp+'" class="rounded-circle user_img_msg">\
+											<img src="'+user_dp+'" class="rounded-circle user_img_msg">\
 										</div>\
 									</div>'
 									);
@@ -228,7 +230,7 @@ var showAnonUserChat = function(user_id) {
 
 var showOHUserChat = function(user_id) {
 	globalUser = user_id;
-	var dp = "https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg";
+	var user_dp = "https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg";
 	$('#user_name').html(idToUser(user_id));	
 	var ref = openhouse.child(user_id);
 	var flag = true;
@@ -249,14 +251,14 @@ var showOHUserChat = function(user_id) {
 			});
 
 			if(msg.user.avatar != ''){
-				dp = msg.user.avatar;
+				user_dp = msg.user.avatar;
 			}
 			if(flag)
-				$('#user_dp').attr('src',dp);
-			if(msg.user._id == user_id){	//this is me
+				$('#user_dp').attr('src',user_dp);
+			if(msg.user._id == 1){	//this is me
 				$('#chatBox').append('<div class="d-flex justify-content-start mb-4">\
 										<div class="img_cont_msg">\
-											<img src="'+dp+'" class="rounded-circle user_img_msg">\
+											<img src="'+admin.avatar+'" class="rounded-circle user_img_msg">\
 										</div>\
 										<div class="msg_cotainer">\
 											'+msg.text+'\
@@ -271,7 +273,7 @@ var showOHUserChat = function(user_id) {
 											<span class="msg_time">'+moment(msg.createdAt).format('hh:mm a')+'</span>\
 										</div>\
 										<div class="img_cont_msg">\
-											<img src="'+dp+'" class="rounded-circle user_img_msg">\
+											<img src="'+user_dp+'" class="rounded-circle user_img_msg">\
 										</div>\
 									</div>'
 									);
