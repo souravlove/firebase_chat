@@ -223,4 +223,12 @@
 	.contacts_card{
 		margin-bottom: 15px !important;
 	}
-	}
+}
+
+#file_send_pin {
+	font-size: 30px;
+}
+
+#file_send_btn {
+	display:none;
+}

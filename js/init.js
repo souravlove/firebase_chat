@@ -303,8 +303,15 @@ sendAnonUserMsg = function(user,msg) {
 	});
 }
 
-
-
 var idToUser = function(user_id) {
 	return user_id;
 }
+
+$('#file_send_pin').click(function(){
+	$('#file_send_btn').trigger('click');
+});
+
+$('#file_send_btn').change(function(e){
+	// var file = e.target.files[0];
+	// alert(file);
+});
