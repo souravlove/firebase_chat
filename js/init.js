@@ -308,10 +308,45 @@ var idToUser = function(user_id) {
 }
 
 $('#file_send_pin').click(function(){
+	console.log('pin clicked');
 	$('#file_send_btn').trigger('click');
 });
 
 $('#file_send_btn').change(function(e){
-	// var file = e.target.files[0];
-	// alert(file);
+	//get file
+	var file = e.target.files[0];
+
+	//create a storage ref
+	var storageRef = firebase.storage().ref('files/'+file.name);
+
+	//upload file
+	var task = storageRef.put(file);
+
+	//update progress bar
+	task.on('state_changed',
+
+		function progress(snapshot) {
+			var percentage = (snapshot.bytesTransferred /
+				snapshot.totalBytes) * 100;
+			$('.upload_percentage').html(percentage+'%');
+		},
+
+		function error(err) {
+
+		},
+
+		function complete() {
+
+			storageRef.getDownloadURL().then(function(url) {
+			  // `url` is the download URL for 'images/stars.jpg'
+			  console.log("url is:"+url);
+			}).catch(function(error) {
+			  // Handle any errors
+			});
+
+		}
+
+	);
+
+
 });
